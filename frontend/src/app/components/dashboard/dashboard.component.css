@@ -1,0 +1,47 @@
+.dashboard-wrapper {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 1.25rem;
+}
+
+h2 {
+  color: #1f3b73;
+}
+
+.entry-form {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(160px, 1fr));
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.entry-form input,
+.entry-form button,
+.search-row input {
+  border: 1px solid #d5d7dc;
+  border-radius: 8px;
+  padding: 0.65rem;
+}
+
+.entry-form button {
+  background: #1f3b73;
+  border: none;
+  color: white;
+}
+
+.grid {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.grid th,
+.grid td {
+  border: 1px solid #eceef2;
+  padding: 10px;
+  text-align: left;
+}
+
+.grid th {
+  background: #f2f5fb;
+}
