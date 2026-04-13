@@ -1,0 +1,15 @@
+<div class="auth-card">
+  <h1>Employee Portal Login</h1>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <label>Username</label>
+    <input type="text" formControlName="username" />
+
+    <label>Password</label>
+    <input type="password" formControlName="password" />
+
+    <button type="submit">Login</button>
+  </form>
+
+  <p class="hint">Use <strong>admin/admin@123</strong> or <strong>user/user@123</strong></p>
+  <p class="error" *ngIf="error">{{ error }}</p>
+</div>

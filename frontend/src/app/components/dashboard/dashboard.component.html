@@ -1,0 +1,44 @@
+<div class="dashboard-wrapper">
+  <h2>Dashboard</h2>
+
+  <form class="entry-form" [formGroup]="employeeForm" (ngSubmit)="submit()">
+    <input placeholder="Employee Name" formControlName="employeeName" />
+    <input type="number" placeholder="Age" formControlName="age" />
+    <input type="date" placeholder="DOB" formControlName="dateOfBirth" />
+    <input type="email" placeholder="Email" formControlName="email" />
+    <input *ngIf="role === 'Admin'" type="number" placeholder="Salary" formControlName="salary" />
+    <button type="submit">Save</button>
+  </form>
+
+  <div class="search-row">
+    <input type="text" placeholder="Search by name/email" [ngModel]="search" (ngModelChange)="onSearch($event)" />
+  </div>
+
+  <table class="grid">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>DOB</th>
+        <th>Email</th>
+        <th>Salary</th>
+        <th>Role</th>
+        <th>Certificate</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees">
+        <td>{{ employee.employeeName }}</td>
+        <td>{{ employee.age }}</td>
+        <td>{{ employee.dateOfBirth | date: 'yyyy-MM-dd' }}</td>
+        <td>{{ employee.email }}</td>
+        <td>{{ employee.salary ?? 'N/A' }}</td>
+        <td>{{ employee.role }}</td>
+        <td>
+          <button type="button" (click)="downloadPdf(employee.id)">PDF</button>
+          <button type="button" (click)="downloadExcel(employee.id)">Excel</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
